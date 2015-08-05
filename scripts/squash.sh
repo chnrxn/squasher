@@ -8,6 +8,6 @@ docker save ${src} |
 	docker-squash -verbose -t ${dst} | 
 	docker load
 
-if grep -sq " --push " " $@ "; then
+if grep -sq -- " --publish " <<<" $@ "; then
 	docker push "${dst}"
 fi
